@@ -1,0 +1,71 @@
+body{
+    display: flex;
+    justify-content: center;
+    position:relative;
+    background-image: url('https://img00.deviantart.net/cecf/i/2011/206/3/2/free_datawall_stage_background_by_mkrukowski-d41l75c.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.wrapper{
+    
+    height: 700px;
+    width: 700px;
+    display: grid;
+    grid-template-rows: 200px 1fr 1fr;
+    grid-auto-columns: 100%;
+    border-radius:8px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+header{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    color:white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 48px;
+}
+.start{
+    color:white;
+    height:30px;
+    width: 80px;
+    text-align: center;
+    background-color: #f44b42;
+    text-decoration: none;
+    padding-top: 10px;
+    border-radius: 8px;
+    font-family: 'Righteous', cursive;
+}
+footer{
+    display: flex;
+    justify-content: space-around;
+    height: 25px;
+    flex-direction: row;
+    align-items: center;
+    align-self: flex-end;
+    margin-bottom: 25px;
+}
+.button{
+    align-self: center;
+    color: white;
+    align-self: flex-end;
+    width: 50px;
+    height: 45px;
+    background-color: #f44b42;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 50%;
+    padding-top: 10px;
+    text-decoration: none;
+    font-family: 'Righteous', cursive;
+}
+p{
+    color: white;
+    font-size: 28px;
+    text-align: center;
+}
