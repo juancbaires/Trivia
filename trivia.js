@@ -19,7 +19,7 @@ const objQuestion = [
     },
     {
       questions: {
-        qustion: 'How do you make a picture into a background image of a web page?', 
+        question: 'How do you make a picture into a background image of a web page?', 
         right: 'body background = “image.gif”>',
         wrong: 'body background-image = “image.gif”>'
       },
@@ -74,6 +74,7 @@ const objQuestion = [
         },
     }
   ]
+// Assigning varable names to html elements according to the games' needs
 buttonStart = document.querySelector('.start')  
 let buttonA = document.querySelector('.a')
 let buttonB = document.querySelector('.b')
@@ -81,23 +82,36 @@ let questionArea = document.querySelector('.question')
 let correctAnswerArea = document.querySelector('.answerA')
 let wrongAnswerArea = document.querySelector('.answerB')
 
+// mapping the array to sigle out the objectes within it
 let updatedQuestions = objQuestion.map(x => x.questions)
 let individualQuestion = updatedQuestions
-console.log(individualQuestion[0].wrong)
-questionCounter = 0;
-for (i = 0; i < individualQuestion.length; i++) {
+// my load question function should handle just that and set a limit(questions max)
+let questionNum = -1;
+    function loadQuestion() {
+        ++questionNum;
+        if (questionNum >= individualQuestion.length) {
+            alert("all questions are done");
+            questionNum = -1
+        } else {
+            questionArea.innerHTML = individualQuestion[questionNum].question;
+            correctAnswerArea.textContent = individualQuestion[questionNum].right;
+            wrongAnswerArea.textContent = individualQuestion[questionNum].wrong;
+        }
+    }
+
     buttonStart.addEventListener('click', function(e) {
+        loadQuestion();
         e.preventDefault()
-    questionArea.textContent = individualQuestion[0].question
-    correctAnswerArea.textContent = individualQuestion[0].right
-    wrongAnswerArea.textContent = individualQuestion[0].wrong
+        buttonStart.style.pointerEvents = 'none'
     })
+        
        buttonA.onclick = function(){
             alert('true')
-            individualQuestion[+1]
+        loadQuestion();
        }
        buttonB.onclick = function() {
-           individualQuestion[+1]
            alert('wrong')
+           loadQuestion()
        }
-    }
+    
+   

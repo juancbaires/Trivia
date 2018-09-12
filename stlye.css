@@ -32,14 +32,15 @@ h1{
 }
 .start{
     color:white;
-    height:30px;
+    height:40px;
     width: 80px;
     text-align: center;
     background-color: #f44b42;
     text-decoration: none;
-    padding-top: 10px;
+    padding-top: 15px;
     border-radius: 8px;
     font-family: 'Righteous', cursive;
+    font-size: 18px;
 }
 footer{
     display: flex;
@@ -68,4 +69,17 @@ p{
     color: white;
     font-size: 28px;
     text-align: center;
+    padding-top: 10px;
+    border-radius: 8px;
+}
+.answerA {
+    width: 699px;
+    height: 50px; 
+}
+.answerB {
+    width: 699px;
+    height: 50px;
+}
+.question {
+    font-size: 40px;
 }
