@@ -100,7 +100,7 @@ const objQuestion = [
     questions: {
       question: 'Which property is used to change the face of a font?',
       right: 'font-family',
-      wrong: 'font-type'
+      wrong: 'font-face'
     }
   },
   {
@@ -230,6 +230,7 @@ let spanA = document.querySelector('.A');
 let spanB = document.querySelector('.B');
 let reset = document.querySelector('.reset');
 let points = document.querySelector('.points');
+let answerBoard = document.querySelector('.rightOrWrong')
 // mapping the array to sigle out the objectes within it
 let updatedQuestions = objQuestion.map(x => x.questions);
 let individualQuestion = updatedQuestions;
@@ -258,6 +259,7 @@ function loadQuestion() {
   checktotal();
   confetti();
 }
+
 // game starts at the click of start button
 buttonStart.addEventListener('click', function(e) {
   loadQuestion();
@@ -266,44 +268,53 @@ buttonStart.addEventListener('click', function(e) {
 });
 
 buttonB.onclick = function() {
-    if (questionNum % 2 !== 0) {
-      alert('true');
-      totalPoints++;
-      points.textContent = 'Score: ' + totalPoints;
-      loadQuestion();
-    } else {
-      alert('wrong');
-      console.log('i am no longer a bug');
-      wrongPoints++;
-      loadQuestion();
-    }
+  if (questionNum % 2 !== 0) {
+    answerBoard.textContent = 'TRUE!!';
+    totalPoints++;
+    points.textContent = `Score: ${totalPoints} /30`;
+    loadQuestion();
+  } else {
+    answerBoard.textContent = 'WRONG!!';
+    console.log('i am no longer a bug');
+    wrongPoints++;
+    loadQuestion();
+  }
 };
 buttonA.onclick = function() {
   if (questionNum % 2 === 0) {
-    alert('true');
+    answerBoard.textContent = 'TRUE!!';
     totalPoints++;
-    points.textContent = 'Score: ' + totalPoints;
+    points.textContent = `Score: ${totalPoints} /30`;
     loadQuestion();
-  }else{
-      alert('wrong')
-      wrongPoints++
-      loadQuestion();
+  } else {
+    answerBoard.textContent = 'WRONG!!';
+    wrongPoints++;
+    loadQuestion();
   }
 };
 
 reset.addEventListener('click', function() {
-  location.reload();
+  window.location.reload()  
+  questionNum = -1;
+  answerBoard.textContent = 'Try Again!'
+  totalPoints = 0
 });
+
 function checktotal() {
   if (totalPoints === individualQuestion.length) {
-    alert("you're a front-end genius");
+    answerBoard.textContent = 'You\'re a front-end genius';
   } else if (totalPoints === 10) {
-    alert('youre one-third Genius');
+   answerBoard.textContent = 'You\'re one-third Genius';
   } else {
   }
 }
+
 function youLost() {
   if (wrongPoints === 3) {
-    points.textContent = 'you lost Game over';
+    answerBoard.textContent = 'Game over!';
+    buttonStart.style.pointerEvents = 'none';
+    buttonA.style.pointerEvents = 'none';
+    buttonB.style.pointerEvents = 'none';
+    points.textContent = `Final Score: ${totalPoints} /30`;
   }
 }
