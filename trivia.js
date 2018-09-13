@@ -231,6 +231,9 @@ let spanB = document.querySelector('.B');
 let reset = document.querySelector('.reset');
 let points = document.querySelector('.points');
 let answerBoard = document.querySelector('.rightOrWrong')
+let nextMessage = document.querySelector('.nextMessage')
+let nextButton = document.querySelector('.nextbutton')
+let popUp = document.querySelector('.popup')
 // mapping the array to sigle out the objectes within it
 let updatedQuestions = objQuestion.map(x => x.questions);
 let individualQuestion = updatedQuestions;
@@ -257,7 +260,6 @@ function loadQuestion() {
   }
   youLost();
   checktotal();
-  confetti();
 }
 
 // game starts at the click of start button
@@ -269,27 +271,35 @@ buttonStart.addEventListener('click', function(e) {
 
 buttonB.onclick = function() {
   if (questionNum % 2 !== 0) {
-    answerBoard.textContent = 'TRUE!!';
+    nextMessage.textContent = 'TRUE!!';
     totalPoints++;
     points.textContent = `Score: ${totalPoints} /30`;
+    popUp.style.display ='flex'
     loadQuestion();
+    next();
   } else {
-    answerBoard.textContent = 'WRONG!!';
+    nextMessage.textContent = 'WRONG!!';
     console.log('i am no longer a bug');
     wrongPoints++;
+    popUp.style.display ='flex'
     loadQuestion();
+    next();
   }
 };
 buttonA.onclick = function() {
   if (questionNum % 2 === 0) {
-    answerBoard.textContent = 'TRUE!!';
+    nextMessage.textContent = 'TRUE!!';
     totalPoints++;
     points.textContent = `Score: ${totalPoints} /30`;
+    popUp.style.display ='flex'
     loadQuestion();
+    next();
   } else {
-    answerBoard.textContent = 'WRONG!!';
+    nextMessage.textContent = 'WRONG!!';
     wrongPoints++;
+    popUp.style.display ='flex'
     loadQuestion();
+    next();
   }
 };
 
@@ -304,17 +314,30 @@ function checktotal() {
   if (totalPoints === individualQuestion.length) {
     answerBoard.textContent = 'You\'re a front-end genius';
   } else if (totalPoints === 10) {
-   answerBoard.textContent = 'You\'re one-third Genius';
-  } else {
-  }
+      nextMessage.textContent = 'YOU WON!! Press next to see what you\'ve got'
+      popUp.style.display = 'flex'
+   answerBoard.textContent = 'CSS';
+  } else if (totalPoints === 20) {
+    answerBoard.textContent = 'JS'
+  } else if(totalPoints === 0){
+      answerBoard.textContent = 'HTML'
+  }   
 }
 
 function youLost() {
   if (wrongPoints === 3) {
-    answerBoard.textContent = 'Game over!';
+    nextMessage.textContent = 'Game over!';
+    popUp.style.display = 'flex'
+    next();
+    answerBoard.textContent = 'Press reset to play again'
     buttonStart.style.pointerEvents = 'none';
     buttonA.style.pointerEvents = 'none';
     buttonB.style.pointerEvents = 'none';
     points.textContent = `Final Score: ${totalPoints} /30`;
   }
+}
+    function next() {
+    nextButton.addEventListener('click', function(){
+        popUp.style.display = 'none'
+    })
 }

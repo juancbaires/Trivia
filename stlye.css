@@ -1,21 +1,24 @@
 body{
+    position: s;
     display: flex;
     justify-content: center;
-    position:relative;
     background-image: url('https://img00.deviantart.net/cecf/i/2011/206/3/2/free_datawall_stage_background_by_mkrukowski-d41l75c.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .wrapper{
-    
+    position: relative;
     height: 700px;
     width: 700px;
     display: grid;
     grid-template-rows: 200px 1fr 1fr;
     grid-auto-columns: 100%;
     border-radius:8px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
+    -webkit-box-shadow: 0px 6px 44px 7px rgba(235,17,35,1);
+    -moz-box-shadow: 0px 6px 44px 7px rgba(235,17,35,1);
+    box-shadow: 0px 6px 44px 7px rgba(235,17,35,1);
 }
 header{
     display: flex;
@@ -28,7 +31,7 @@ header{
 h1{
     color:white;
     font-family: 'Open Sans', sans-serif;
-    font-size: 40px;
+    font-size: 44px;
     margin-bottom: -15px;
 }
 h2{
@@ -37,34 +40,51 @@ h2{
     font-size: 32px;
     margin-bottom: 20px;
 }
+/* button effects came for https://gradientbuttons.colorion.co/ */
+.start:hover {
+    background-size: 200px;
+    box-shadow: 0px 0px 0px 0px #999;
+    transition: all .5s ease;
+ }
 .start{
     color:white;
     height:40px;
-    width: 80px;
+    width: 120px;
     text-align: center;
-    background-color: #f44b42;
+    background: linear-gradient(#FF6B6B , #5460ea); 
+    transition: background 0.05s linear;
+	background-size:1px 200px;
+	transition: all .05s linear;
     text-decoration: none;
     padding-top: 15px;
     border-radius: 8px;
     font-family: 'Righteous', cursive;
-    font-size: 20px;
-    margin-bottom: 5px;
+    font-size: 25px;
+    margin-top: 5px;
     padding-bottom: 7px;
 }
-
+.reset:hover {
+    background-size: 200px;
+    box-shadow: 0px 0px 0px 0px #999;
+    transition: all .5s ease;
+ }
 
 .reset{
     color:white;
     height:40px;
-    width: 80px;
+    width: 120px;
     text-align: center;
-    background-color: #f44b42;
+    background: linear-gradient(#FF6B6B, #5460ea); 
+    transition: background 0.05s linear;
+	background-size:1px 200px;
+	transition: all .05s linear;
     text-decoration: none;
     padding-top: 15px;
     padding-bottom: 7px;
     border-radius: 8px;
     font-family: 'Righteous', cursive;
-    font-size: 20px;
+    font-size: 25px;
+    margin-top: 5px;
 }
 
 footer{
@@ -82,7 +102,10 @@ footer{
     align-self: flex-end;
     width: 75px;
     height: 60px;
-    background-color: #f44b42;
+    background: linear-gradient(#FF6B6B, #5460ea); 
+    transition: background 0.05s linear;
+	background-size:1px 200px;
+	transition: all .05s linear;
     text-align: center;
     font-size: 30px;
     border-radius: 50%;
@@ -90,12 +113,19 @@ footer{
     text-decoration: none;
     font-family: 'Righteous', cursive;
 }
+.button:hover {
+    background-size: 200px;
+    box-shadow: 0px 0px 0px 0px #999;
+    transition: all .5s ease;
+ }
 p{
     color: white;
-    font-size: 28px;
+    font-size: 32px;
     text-align: center;
     padding-top: 10px;
     border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+
 }
 .answerA {
     width: 699px;
@@ -106,7 +136,7 @@ p{
     height: 50px;
 }
 .question {
-    font-size: 40px;
+    font-size: 35px;
 }
 span{
     color:white;
@@ -119,7 +149,7 @@ nav {
     margin-top: -20px;
 }
 .points {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Roboto', sans-serif;
     font-size: '30px';
     font-weight: 300;
 }
@@ -148,3 +178,41 @@ body {
   .blue {
     background-color: #5FC9F5;
   }
+strong {
+    color: white;
+    text-transform: uppercase;
+}
+
+
+.popup {
+    position: absolute;
+    width: 698px;
+    height: 698px;
+    z-index: 1;
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius:8px;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+
+}
+.nextbutton {
+    color:white;
+    height:40px;
+    width: 120px;
+    text-align: center;
+    background: linear-gradient(#FF6B6B , #5460ea); 
+    transition: background 0.05s linear;
+	background-size:1px 200px;
+	transition: all .05s linear;
+    text-decoration: none;
+    padding-top: 15px;
+    border-radius: 8px;
+    font-family: 'Righteous', cursive;
+    font-size: 25px;
+    margin-top: 5px;
+    padding-bottom: 7px;
+}
