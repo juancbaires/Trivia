@@ -10,21 +10,24 @@
     <title>Document</title>
 </head>
 <body>
+        <div class="rapper">
     <div class="wrapper">
     <header>
         <h1>FRON-TRIVIA</h1>
-        <a class="start" href="#">Start</a>
+        <nav> <a class="start" href="#">Start</a><a href="#" class="reset">Reset</a></nav>
     </header>
     <div class="container">
-        <p class="question">How hard is it to build a game?</p>
-        <p class="answerA">This may be the answer</p>
-        <p class="answerB">This may also be the anser</p>
+        <p class="question">Test your HTML/CSS/JS knowlege</p>
+        <p class="answerA"><span class="A"></span>Click start to Play</p>
+        <p class="answerB"><span class="B"></span>May the odds be ever in your favor!</p>
     </div>
     <footer>
-            <a href="#" class="button a" data-right="">A</a><a href="#" class="button b" data-wrong="">B</a>
+            <a href="#" class="button a" data-right="">A</a><p class="points">Points: 0</p> <a href="#" class="button b" data-wrong="">B</a>
     </footer>
 </div>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="confetti.js"></script>    
     <script src="trivia.js"></script>
+    </div>
 </body>
 </html>
