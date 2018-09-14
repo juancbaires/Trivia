@@ -34,9 +34,9 @@ const objQuestion = [
   },
   {
     questions: {
-      question: 'Can a single text link point to two different web pages?',
-      right: 'Yes',
-      wrong: 'No'
+      question: 'How many tags are in a regular element?',
+      right: '2',
+      wrong: '1'
     }
   },
   {
@@ -260,9 +260,11 @@ function loadQuestion() {
   }
   youLost();
   checktotal();
+  confetti();
 }
 
 // game starts at the click of start button
+
 buttonStart.addEventListener('click', function(e) {
   loadQuestion();
   e.preventDefault();
@@ -286,6 +288,7 @@ buttonB.onclick = function() {
     next();
   }
 };
+
 buttonA.onclick = function() {
   if (questionNum % 2 === 0) {
     nextMessage.textContent = 'TRUE!!';
@@ -306,16 +309,14 @@ buttonA.onclick = function() {
 reset.addEventListener('click', function() {
   window.location.reload()  
   questionNum = -1;
-  answerBoard.textContent = 'Try Again!'
   totalPoints = 0
 });
 
 function checktotal() {
   if (totalPoints === individualQuestion.length) {
     answerBoard.textContent = 'You\'re a front-end genius';
-  } else if (totalPoints === 10) {
-      nextMessage.textContent = 'YOU WON!! Press next to see what you\'ve got'
-      popUp.style.display = 'flex'
+  } else if (totalPoints === 25) {
+      
    answerBoard.textContent = 'CSS';
   } else if (totalPoints === 20) {
     answerBoard.textContent = 'JS'
@@ -325,7 +326,7 @@ function checktotal() {
 }
 
 function youLost() {
-  if (wrongPoints === 3) {
+  if (wrongPoints === 6) {
     nextMessage.textContent = 'Game over!';
     popUp.style.display = 'flex'
     next();
