@@ -17,4 +17,4 @@ Originally the **goal** plan was to be able to pick a topic and answer some ques
 
 This web application game is built using html, css, and javascript and some jquery for the confetti. I used an arrays of objects to store the games' questions and answers and I also used DOM munipulation to make things happen real time. 
 
-![](images/Screen Shot 2018-09-14 at 2.59.42 PM.png)
+![](/Users/rebecamartinez/wdi/projects/Trivia/images/ScreenShot.png)
